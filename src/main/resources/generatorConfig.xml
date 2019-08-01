@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="db.properties"/>
+
+    <context id="oracle11gR2Tables" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="false"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${oracle11gR2.driverClassName}"
+                        connectionURL="${oracle11gR2.url}"
+                        userId="${oracle11gR2.username}"
+                        password="${oracle11gR2.password}">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <!-- true, 把DECIMAL和NUMERIC类型转换成java.math.BigDecimal -->
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="org.warnier.zhang.notes.mybatis3.generator.model"
+                            targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="org.warnier.zhang.notes.mybatis3.generator.dao"
+                         targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="org.warnier.zhang.notes.mybatis3.generator.dao"
+                             targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="CMS_LINK"
+               domainObjectName="Link">
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="LINK_ID"
+                          sqlStatement="SELECT cms_link_seq_1.NEXTVAL FROM dual"
+                          identity="false"/>
+        </table>
+    </context>
+</generatorConfiguration>
