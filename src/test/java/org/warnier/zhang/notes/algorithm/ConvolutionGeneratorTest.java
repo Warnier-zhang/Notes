@@ -1,6 +1,7 @@
-package org.warnier.zhang.notes;
+package org.warnier.zhang.notes.algorithm;
 
 import org.junit.Test;
+import org.warnier.zhang.notes.algorithm.ConvolutionGenerator;
 
 public class ConvolutionGeneratorTest {
     @Test

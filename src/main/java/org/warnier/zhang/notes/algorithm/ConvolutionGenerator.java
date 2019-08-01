@@ -1,4 +1,4 @@
-package org.warnier.zhang.notes;
+package org.warnier.zhang.notes.algorithm;
 
 public class ConvolutionGenerator {
     private int n;
